@@ -31,7 +31,7 @@ jobs:
       - run: 
           name: Show current branch
           command: echo ${CURRENT_BRANCH}
-      -run:
+      - run:
           name: Installing AWS CLI
           working_directory: /
           command:
@@ -59,7 +59,7 @@ jobs:
               aws --region ${AWS_REGION} s3 sync ~/repo/build s3://${AWS_DEV_BUCKET} --delete
             fi
 
-deploy-to-aws-cloudfront:
+  deploy-to-aws-cloudfront:
     docker:
       - image: circleci/node:13.12.0
     working_directory: ~/repo
@@ -87,10 +87,10 @@ deploy-to-aws-cloudfront:
           name: Deploy to AWS Cloudfront
           command: |
             aws configure set preview.cloudfront
-            if ["${CURRENT_BRANCH" == "master" ]
+            if [ "${CURRENT_BRANCH" == "master" ]
             then
               aws cloudfront create-invalidation --distribution-id ${PROD_DISTRIBUTION_ID} --paths/\*
-           elif ["${CURRENT_BRANCH" == "staging" ]
+           elif [ "${CURRENT_BRANCH" == "staging" ]
             then
               aws cloudfront create-invalidation --distribution-id ${STAGING_DISTRIBUTION_ID} --paths/\*
             else
