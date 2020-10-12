@@ -99,17 +99,17 @@ jobs:
 workflows:
   build_and_deploy:
     jobs:
-      - build
-      - deploy-to-aws-s3:
+    - build
+    - deploy-to-aws-s3:
         requires:
           - build
         filters:
           branches:
             only:
-              -develope
-              -staging
-              -master
-      - deploy-to-aws-cloudfront:
+              - develope
+              - staging
+              - master
+    - deploy-to-aws-cloudfront:
         requires:
           - deploy-to-aws-s3
         filters:
