@@ -68,7 +68,7 @@ jobs:
       - run: 
           name: Show current branch
           command: echo ${CURRENT_BRANCH}
-      -run:
+      - run:
           name: Installing AWS CLI
           working_directory: /
           command:
