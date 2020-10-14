@@ -167,3 +167,12 @@ workflows:
               - develope
               - staging
               - master
+    - notify-via-slack:
+      requires:
+        - deploy-to-aws-cloudfront
+        filters:
+          branches:
+            only:
+              - develope
+              - staging
+              - master
