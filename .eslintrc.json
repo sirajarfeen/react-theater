@@ -20,7 +20,7 @@
     },
     "settings": {
       "react": {
-          "version": "16.0"
+        "version": "16.0"
       }
     },
     "plugins": [
@@ -28,7 +28,7 @@
     ],
     "rules": {
         "semi": [2, "always"],
-        "space-before-functions-paren": [0, {"anonymous": "always", "named": "always"}],
+        "space-before-function-paren": [0, {"anonymous": "always", "named": "always"}],
         "camelcase": 0,
         "no-return-assign": 0
     }
