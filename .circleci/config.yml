@@ -121,7 +121,7 @@ jobs:
   notify-via-slack:
     executor: slack-executor
     steps: 
-      - slack/notify
+      - slack/notify:
           message: "${CIRCLE_BRANCH} branch deployment complete"
           webhook: $CIRCLECI_SLACK
       - slack/status: 
@@ -167,12 +167,12 @@ workflows:
               - develope
               - staging
               - master
-    - notify-via-slack:
-      requires:
-        - deploy-to-aws-cloudfront
+     - notify-via-slack:
+        requires:
+          - deploy-to-aws-cloudfront
         filters:
           branches:
             only:
-              - develope
-              - staging
-              - master
+            - develope
+            - staging
+            - master
