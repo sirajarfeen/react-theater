@@ -16,7 +16,7 @@ const App = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Leffg
+          Le
         </a>
       </header>
     </div>
