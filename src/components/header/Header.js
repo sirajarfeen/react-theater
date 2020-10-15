@@ -11,7 +11,7 @@ const HEADER_LIST = [
     id: 2,
     iconClass: 'fas fa-fire',
     name: 'Popular',
-    type: 'popukar'
+    type: 'popular'
   },
   {
     id: 3,
