@@ -1,94 +1,6 @@
-// import React, { useState, useEffect } from 'react';
-// import { API_URL } from '../../services/service';
-// import './Header.scss';
-// const HEADER_LIST = [
-//   {
-//     id: 1,
-//     iconClass: 'fas fa-film',
-//     name: 'Now Playing',
-//     type: 'now_playing'
-//   },
-//   {
-//     id: 2,
-//     iconClass: 'fas fa-fire',
-//     name: 'Popular',
-//     type: 'popukar'
-//   },
-//   {
-//     id: 3,
-//     iconClass: 'fas fa-star',
-//     name: 'TOP Rated',
-//     type: 'top_rated'
-//   },
-//   {
-//     id: 4,
-//     iconClass: 'fas fa-square',
-//     name: 'Upcoming',
-//     type: 'upcoming'
-//   }
-// ];
-// const Header = () => {
-//   let [navClass, setNavClass] = useState(false);
-//   let [menuClass, setMenuClass] = useState(false);
-
-//   useEffect(() => {
-//     const res = API_URL('now_playing', 1)
-//     console.log(res);
-//   },[]);
-
-//   const toggleMenu = () => {
-//     menuClass = !menuClass;
-//     navClass = !navClass;
-//     setMenuClass(menuClass);
-//     setNavClass(navClass);
-//     if (navClass) {
-//       document.body.classList.add('header-nav-open');
-//     } else {
-//       document.body.classList.remove('header-nav-open');
-//     }
-//   };
-//   return (
-//     <>
-//       <div className="header-nav-wrapper">
-//         <div className="header-bar"> </div>
-//         <div className="header-navbar">
-//           <div className="header-image">
-//             {/* <img src={logo} alt="" /> */}
-//             Theater App
-//           </div>
-//           <div
-//             className={`${menuClass ? 'header-menu-toggle is-active' : 'header-menu-toggle'}`}
-//             id="header-mobile-menu"
-//             onClick={() => toggleMenu()}
-//           >
-//             <span className="bar"></span>
-//             <span className="bar"></span>
-//             <span className="bar"></span>
-//           </div>
-//           <ul className={`${navClass ? 'header-nav header-mobile-nav' : 'header-nav'}`}>
-//             {HEADER_LIST.map((data) => (
-//               <li key={data.id} className="header-nav-item">
-//                 <span className="header-list-name">
-//                   <i className={data.iconClass}></i>
-//                 </span>
-//                 &nbsp;
-//                 <span className="header-list-name">{data.name}</span>
-//               </li>
-//             ))}
-//             <input className="search-input" type="text" placeholder="Search for a movie"></input>
-//           </ul>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-// export default Header;
-
-
-/* eslint-disable no-const-assign */
 import React, { useState, useEffect } from 'react';
+import { API_URL } from '../../services/service';
 import './Header.scss';
-import {API_URL} from '../../services/service'
 const HEADER_LIST = [
   {
     id: 1,
@@ -100,19 +12,19 @@ const HEADER_LIST = [
     id: 2,
     iconClass: 'fas fa-fire',
     name: 'Popular',
-    type: 'popular'
+    type: 'popukar'
   },
   {
     id: 3,
     iconClass: 'fas fa-star',
-    name: 'Top Rated',
+    name: 'TOP Rated',
     type: 'top_rated'
   },
   {
     id: 4,
-    iconClass: 'fas fa-plus-square',
+    iconClass: 'fas fa-square',
     name: 'Upcoming',
-    type: 'Upcoming'
+    type: 'upcoming'
   }
 ];
 const Header = () => {
@@ -120,14 +32,15 @@ const Header = () => {
   let [menuClass, setMenuClass] = useState(false);
 
   useEffect(() => {
-    const res= API_URL('now_playing',1);
+    const res = API_URL('now_playing', 1)
     console.log(res);
   },[]);
+
   const toggleMenu = () => {
     menuClass = !menuClass;
     navClass = !navClass;
-    setNavClass(navClass);
     setMenuClass(menuClass);
+    setNavClass(navClass);
     if (navClass) {
       document.body.classList.add('header-nav-open');
     } else {
@@ -137,11 +50,11 @@ const Header = () => {
   return (
     <>
       <div className="header-nav-wrapper">
-        <div className="header-bar"></div>
+        <div className="header-bar"> </div>
         <div className="header-navbar">
           <div className="header-image">
-            {/* <img src={logo} alt=""/> */}
-            Movie-App
+            {/* <img src={logo} alt="" /> */}
+            Theater App
           </div>
           <div
             className={`${menuClass ? 'header-menu-toggle is-active' : 'header-menu-toggle'}`}
@@ -156,18 +69,17 @@ const Header = () => {
             {HEADER_LIST.map((data) => (
               <li key={data.id} className="header-nav-item">
                 <span className="header-list-name">
-                  <i className={data.iconClass}> </i>
+                  <i className={data.iconClass}></i>
                 </span>
                 &nbsp;
                 <span className="header-list-name">{data.name}</span>
               </li>
             ))}
-            <input className="search-input" type="text" placeholder="Search for a movie" />
+            <input className="search-input" type="text" placeholder="Search for a movie"></input>
           </ul>
         </div>
       </div>
     </>
   );
 };
-
 export default Header;
