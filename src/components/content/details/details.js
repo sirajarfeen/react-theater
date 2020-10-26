@@ -13,20 +13,20 @@ import Reviews from './reviews/reviews';
 import { movieDetails } from '../../../redux/actions/movies';
 // import { pathURL } from '../../../redux/actions/routes';
 import { IMAGE_URL } from '../../../services/service';
-// import Spinner from '../../spinner/Spinner';
+import Spinner from '../../spinner/spinner';
 
 const Details = (props) => {
   const { movieDetails, movie } = props;
   const [details, setDetails] = useState();
-  // const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { id } = useParams();
 
-  //   useEffect(() => {
-  //     setLoading(true);
-  //     setTimeout(() => {
-  //       setLoading(false);
-  //     }, 2000);
-  //   }, []);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   useEffect(() => {
     // pathURL(match.path, match.url);
@@ -39,7 +39,7 @@ const Details = (props) => {
 
   return (
     <>
-      {details && (
+      {loading ? <Spinner /> : details && (
         <div className="movie-container">
           <div
             className="movie-bg"
