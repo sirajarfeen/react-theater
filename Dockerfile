@@ -11,7 +11,7 @@ COPY . /app
 RUN npm install
 
 # BUILD production app
-RUN npm run BUILD
+RUN npm run build
 
 # Listen on the specified port
 EXPOSE 3000
