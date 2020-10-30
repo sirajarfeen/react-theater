@@ -11,12 +11,12 @@ import Crew from './crew/crew';
 import Media from './media/media';
 import Reviews from './reviews/reviews';
 import { movieDetails } from '../../../redux/actions/movies';
-// import { pathURL } from '../../../redux/actions/routes';
+import { pathURL } from '../../../redux/actions/routes';
 import { IMAGE_URL } from '../../../services/service';
 import Spinner from '../../spinner/spinner';
 
 const Details = (props) => {
-  const { movieDetails, movie } = props;
+  const { movieDetails, movie, pathURL, match } = props;
   const [details, setDetails] = useState();
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
@@ -29,7 +29,7 @@ const Details = (props) => {
   }, []);
 
   useEffect(() => {
-    // pathURL(match.path, match.url);
+    pathURL(match.path, match.url);
     if (movie.length === 0) {
       movieDetails(id);
     }
@@ -100,13 +100,13 @@ const Details = (props) => {
 
 Details.propTypes = {
   movie: PropTypes.array,
-  movieDetails: PropTypes.func
-  // pathURL: PropTypes.func,
-  // match: PropTypes.object
+  movieDetails: PropTypes.func,
+  pathURL: PropTypes.func,
+  match: PropTypes.object
 };
 
 const mapStateToProps = (state) => ({
   movie: state.movies.movie
 });
 
-export default connect(mapStateToProps, { movieDetails })(Details);
+export default connect(mapStateToProps, { movieDetails, pathURL })(Details);
