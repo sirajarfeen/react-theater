@@ -5,7 +5,7 @@ FROM node:13-alpine
 WORKDIR /app
 
 # Copy the files from the current directory to app
-COPY ./app
+COPY . /app
 
 # Install Dependencies
 RUN npm install
